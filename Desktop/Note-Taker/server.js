@@ -20,8 +20,15 @@ const writeFile = (destination, content) =>
   err ? console.error(err) : console.info (`\nData written to ${destination}`)
   );
 
+//route to/ notes
+app.get('/notes.html', (req, res) =>
+res.sendFile(path.join(__dirname, '/Develop/public/notes.html'))
+);
 
-
+// api to get notes
+app.get('/api/notes', (req, res) => {
+  res.send('Hello NoteTakers!');
+});
 
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}. ACTIVE!`);
